@@ -26,7 +26,13 @@ def get_user(uid):
     elif not user:
         return jsonify({"msg":"Users not exits"}), 404
 
+@app.route('/users/<int:uid>', methods=['PUT'])
+def update_user(uid, name, age):
+    pass
 
+@app.route('/users/<int:uid>', methods=['DELETE'])
+def delete_user(uid):
+    pass
 
 if __name__ == '__main__': 
    app.run(debug=True)
