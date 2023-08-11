@@ -13,6 +13,13 @@ db = Database()
 def index():
     return "<h1>Hello Flask</h1>"
 
+@app.route('/users/', method=['POST'])
+def create_user():
+    data = request.get_json()
+    db.create_user(data['uid'], data['name'], data['age'])
+    uid = data['uid']
+    return jsonify({"message" : "User has been create", "uid" : uid}),201
+
 @app.route('/users', methods=['GET'])
 def get_users():
     users = db.get_users() 
