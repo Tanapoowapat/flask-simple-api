@@ -8,7 +8,6 @@ app = Flask(__name__)
 
 db = Database()
 
-
 @app.route('/')
 def index():
     return "<h1>Hello Flask</h1>"

@@ -2,13 +2,11 @@ from mysql import connector
 from dotenv import load_dotenv
 import os
 
-env_path = "../.env"
-
 load_dotenv()
 PASSWORD = os.getenv("PASSWORD")
 HOST = os.getenv("SERVER")
 USERNAME = 'root'
-DATABASE_NAME = "USERS"
+DATABASE_NAME = "users"
 
 class Database:
     def __init__(self):
@@ -16,7 +14,7 @@ class Database:
             host =HOST,
             username = USERNAME,
             password = PASSWORD,
-            database = DATABASE_NAME
+            database = DATABASE_NAME,
         )
         self.cursor = self.conn.cursor()
  
