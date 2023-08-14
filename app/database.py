@@ -21,28 +21,28 @@ class Database:
         self.cursor = self.conn.cursor()
  
     def create_user(self, uid, name, age):
-        query = "CREATE INTO USER (uid, name, age) VALUES (%s, %s, %s)"
+        query = "INSERT INTO USER (uid, name, age) VALUES (%s, %s, %s);"
         value = (uid, name, age)
         self.cursor.execute(query, value)
         self.conn.commit()
 
     def get_users(self):
-        query = "SELECT * FROM USER"
+        query = "SELECT * FROM USER;"
         self.cursor.execute(query)
         return self.cursor.fetchall()
     
     def get_user(self, uid):
-        qurey = "SELECT * FROM USER WHERE uid =%s"
+        qurey = "SELECT * FROM USER WHERE uid =%s;"
         self.cursor.execute(qurey, (uid,))
         return self.cursor.fetchone()
     
     def delete_user(self, uid):
-        qurey = "DELETE FROM USER WHERE uid = %s"
+        qurey = "DELETE FROM USER WHERE uid = %s;"
         self.cursor.execute(qurey, (uid,))
         self.conn.commit()
 
     def update(self, uid, name, age):
-        qurey = "UPDATE USER SET name = %s, age = %s WHERE uid = %s"
+        qurey = "UPDATE USER SET name = %s, age = %s WHERE uid = %s;"
         val = (name, age, uid)
         self.cursor.execute(qurey, (val))
         self.conn.commit()
